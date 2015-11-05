@@ -5,7 +5,6 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
     @movies = current_user.movies
   end
 
@@ -26,7 +25,6 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
-    @movie = Movie.new(movie_params)
     @movie = current_user.movies.new(movie_params)
 
     respond_to do |format|
